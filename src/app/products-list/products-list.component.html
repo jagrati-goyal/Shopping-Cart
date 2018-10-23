@@ -1,0 +1,19 @@
+<input [(ngModel)] = 'filter' placeholder="Filter Products" ><br/>
+<h3 style.color={{filter}}>{{filter}}</h3><br/>
+<div id="product-cards" class="row">
+  <div *ngFor="let product of filteredProducts">
+    <div class="card md-2" style="width: 20rem;">
+      <div class="card text-center">
+        <div class="card-body">
+          <h3 class="card-title">{{product.name}}</h3>
+          <img [src]='product.image' width="150px" height="150px">
+          <p class="card-text">{{product.description}}</p>
+          <h4>{{product.price | currency: 'INR' }}</h4>
+          <app-rating [rating] = 'product.rating'></app-rating>
+          <button> Add to Cart </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
